@@ -1,0 +1,50 @@
+<script>
+// callback function.
+    // it is just a function that is passed to another function as an argument. and it will be called in that function.
+
+function abc(url, callback) {
+    fetch(url).then( raw => raw.json() ).then( readable => {
+        // callback(readable);
+    } )
+}
+
+abc("https://randomuser.me/api/", function(result){
+    console.log(result);
+})
+
+
+
+function doSomeAcyncTask(url, callback){
+    fetch(url)
+    .then( raw => raw.json() )
+    .then( result => {
+        // callback(result.results[0]);
+    });
+}
+
+doSomeAcyncTask("https://randomuser.me/api/", function(result){
+    console.log('email :  '+ result.email)
+    console.log('gender :  '+ result.gender)
+    console.log('cell :  '+ result.cell)
+})
+
+
+// 7) async await:
+
+async function asyncAwait(){
+    let a = await fetch("https://randomuser.me/api/");
+    // After the initial fetch() call, only the headers have been read. So, to parse the body as JSON, first the body data has to be read from the incoming stream. And, since reading from the TCP stream is asynchronous, the .json() operation ends up asynchronous.so we need to add await before .json().
+    a = await a.json();
+    console.log(a);
+    console.log('hello world');
+}
+
+asyncAwait()
+
+// event loop:
+    // the synchronous code runs in the main stack and the asynchronous code runs in the side stack called CALLBACK QUEUE. when the main stack emptied the single thing from callback queue comes to the main stack and get executed and again when the main stack emptied one more thing from callback queue comes to main stack and get executed and so on.
+    // something that checks if the main stack is empty or not is called EVENT LOOP.
+
+
+
+</script>

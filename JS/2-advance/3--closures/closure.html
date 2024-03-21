@@ -1,0 +1,44 @@
+<script>
+// CLOSURE.
+// The function that returns another function, and the returned function is using some value of the parent function is called Closure.
+
+function abc(){
+    var x = 13;
+    return function(){
+        console.log(x);
+    }
+}
+
+var new_fun = abc()
+new_fun();
+
+// ADVANTAGE: 
+// when a function completes, it vanished out from the memory.
+// when we started the closure function, it creates a possibility that the values of this function passed to the returned function, should may be used later, so interpreter check which values are passed to the returned function and store them for later.
+
+function xyz(){
+    var v = 12;
+    return setTimeout(function(){
+        console.log(v);
+    },2000)
+}
+
+xyz();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>

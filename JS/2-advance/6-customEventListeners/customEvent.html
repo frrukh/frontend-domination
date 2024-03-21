@@ -1,0 +1,39 @@
+<button style="padding: 10px 20px; font-size: larger; font-weight: bolder; border-radius: 3px;">Custom event</button>
+<script>
+// CUSTOM EVENT LISTENER.
+// custom events are used to make our code clean.
+
+// how to create?
+const myevent = new Event('chacha');
+
+// how to apply?
+const btn = document.querySelector('button');
+let flag = true;
+btn.addEventListener('chacha', function(){
+    if(flag===true){
+        this.style.backgroundColor = 'red';
+        this.style.color = 'white';
+        flag = false;
+    }else{
+        this.style.backgroundColor = 'white';
+        this.style.color = 'black';
+        flag = true;
+    }
+})
+
+// how to dispatch the event?
+btn.dispatchEvent(myevent);
+
+setInterval(() => {
+    btn.dispatchEvent(myevent);
+}, 2000);
+
+
+
+
+
+
+
+
+
+</script>

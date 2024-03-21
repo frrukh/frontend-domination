@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" style="background-color: black;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html{
+            height: 100%;
+            width: 100%;
+        }
+        
+        body{
+            height: 70%;
+            width: 70%;
+        }
+        
+    </style>
+</head>
+<body style="background-color: red;">
+    <div id="parent">
+        <button id="btn1" style="padding: 10px 20px;font-size: larger;">Pause</button>
+        <button id="btn2" style="padding: 10px 20px;font-size: larger;">Play</button>
+    </div>
+
+
+    <script>
+        // EVENT BUBBLING:
+            // it means when a element is clicked, the browser check : all the parents of the element and from all the parents of the element if any one has a event , it triggered.
+
+            // if I click on button _ then the all click events of button and its all parents, triggered.
+        var parent = document.getElementById("parent");
+        parent.addEventListener('click',function(){
+            this.style.backgroundColor = "#FFFFFF";
+        });
+
+        var body = document.querySelector('body')
+        body.addEventListener('click',function(){
+            this.style.backgroundColor = '#919191';
+            console.log(this)
+        })
+        
+    </script>
+</body>
+</html>

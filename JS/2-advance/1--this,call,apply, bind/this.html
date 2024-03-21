@@ -1,0 +1,88 @@
+<button style="padding: 10px 50px; font-size: 3rem;">event with ES5.</button>
+<button style="padding: 10px 50px; font-size: 3rem;" class="btn">event with ES5.</button>
+<script>
+// this.
+// it is one of the most suspenseful(confusing) keywords that changes its value according to the context.
+// 6-different conditions in which the value of this is different:
+    // 1) globally - (window)
+    // 2) function - (window[ES5] / parent's this[ES6])
+    // 3) method - (parent-object[ES5] / parent's this[ES6])
+    // 4) function inside method - (window[ES5] / object[ES6])
+    // 5) inside constructor function - (new blank object)
+    // 6) event listener - (element on which event listener is applied)
+
+        // 1) globally - (window)
+console.log(this) // window
+
+// *********************
+// RULE:
+    // in ES6 functions & methods the value of this will be taken by parent
+    // in ES5 functions the value of this will be window.
+    // in ES5 methods the value of this will be parent object.
+
+// *********************
+
+        // 2) function - (window[ES5] / parent's this[ES6])
+function a(){
+    console.log(this) // window (as in ES5 -- this = window)
+}
+a()
+            //  as there is no parent it will take the global value of this
+var b = ()=> console.log(this) // window (as in ES6 -- this = this of parent)
+b()
+
+
+        // 3) method - (parent-object[ES5] / parent's this[ES6])
+var obj = {
+    name : this, // window (as it is global),
+    method_es5 : function(){
+        console.log("this")
+        console.log(this) // obj i.e {name: Window, method_es5: ƒ}
+    },
+    method_es6 : ()=>console.log(this) // window (as this of parent = window)
+}
+
+obj.method_es5()
+obj.method_es6()
+
+
+        // 4) function inside method - (window[ES5] / object[ES6])
+var obj1 = {
+    fun : function(){
+        function a(){
+            console.log(this) // window (ES% function's this = window)
+        }
+        a();
+    },
+    fun1 : function(){
+         var b = () => console.log(this) // obj1 i.e {fun: ƒ, fun1: ƒ} -- (taken by parent)
+         b();
+    }
+
+}
+
+obj1.fun()
+obj1.fun1()
+
+
+        // 5) inside constructor function - (new blank object)
+function con(){
+    console.log(this); // {}
+    this.name = 'h';
+}
+
+new con();
+
+        // 6) event listener - (element on which event listener is applied)
+document.querySelector('button').addEventListener('click', function(){
+    console.log(this); // <button style="...">event with ES5.</button>
+})
+
+
+document.querySelector('.btn').addEventListener('click', ()=>{
+    console.log(this); // window - (as it is fat arrow function of ES6)
+})
+
+
+
+</script>

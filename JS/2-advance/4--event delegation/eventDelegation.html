@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="parent">
+        <button id="btn1" style="padding: 10px 20px;font-size: larger;">Pause</button>
+        <button id="btn2" style="padding: 10px 20px;font-size: larger;">Play</button>
+    </div>
+
+
+    <script>
+        // EVENT DELEGATION:
+            // it is the way to manipulate multiple elements by just using single event listener.
+            // in event delegation we apply event listener to the parent, and when the parent or any of its children is clicked the parent's event listener will be triggered. and then by using the parameter of event listener we can control its children.
+
+        var parent = document.getElementById("parent");
+
+        parent.addEventListener('click',function(details){
+            if(details.target.id == "btn1"){
+                console.log('button1 is triggered');
+            }else if(details.target.id == "btn2"){
+                console.log('button2 is triggered');
+            }
+        });
+
+        
+    </script>
+</body>
+</html>

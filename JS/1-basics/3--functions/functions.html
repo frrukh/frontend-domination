@@ -1,0 +1,78 @@
+<script>
+// FUNCTIONS
+// There are basically four types of functions on syntax bases.
+    // three are from ES5.
+        // 1- Function Statement.
+function abc(){
+    // this is function statement.
+}
+
+        // 2- Function Expression.
+var xyz = function(){
+    // this is function expression.
+}
+
+        // 3- Anonymous Function.
+            // as this function has no identity to call, it will give error.
+            // so,we can't create this type of functions globally 
+/*
+function(){
+    // this is an anonymous function.
+    console.log(12+3)
+}
+*/
+
+    
+    // one is from ES6. (fat arrow function)
+    // this one also have three types on syntax bases.
+        // 1- Basic Fat Arrow Function.
+
+var a = ()=>{
+    // this is a basic fat arrow function.
+}
+
+        // 2- Arrow Function with one parameter.
+var a = (x)=>{
+    // this is arrow with one parameter.
+}
+
+var a = x =>{
+    // there is single parameter, so we can write it without (), like this.
+}
+
+
+        // 3- Arrow Function with implicit return.
+        // in this type, the function have single line of code i.e return.
+        
+var a = ()=> 'hello'; 
+var a = ()=> 21; 
+var a = ()=> function(){console.log('hi')}; // returning a function. 
+
+
+console.log(a())
+
+
+
+
+// tip:
+    // any function that returns nothing, returns undefined.
+
+function und(){
+    let a = 12;
+    a += 12;
+}
+
+console.log(und()) // undefined.
+
+
+function xyz(){
+    let a = 1;
+    a++;
+    return;
+}
+
+console.log(xyz()) // undefined.
+
+
+
+</script>

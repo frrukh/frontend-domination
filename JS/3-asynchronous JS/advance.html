@@ -1,0 +1,34 @@
+<script>
+// GENERATORS:
+    // Generators are just the functions but the plus point is, we can pause the function on any step.
+    // to create generators we need to add * with function.
+    // we can define the points on which we want to pause the function by using the keyword yield and number of pause.
+function* gen(){
+    console.log('step one')
+    yield 1;
+    console.log('step two')
+    yield 2;
+    console.log('step three')
+    yield 3;
+    console.log('step four')
+    yield 4;
+    console.log('end')
+}
+
+    // to control the pauses we have to store the calling of function in a variable and later we can control that function steps using .next() method on that variable.
+
+var abc = gen() // this line will't run the function.
+
+console.log((abc.next())); // this line will run till yield 1; and return  an object.
+abc.next(); // this line will run till yield 2;
+abc.next(); // this line will run till yield 3;
+abc.next(); // this line will run till yield 4;
+abc.next(); // this line will run till end of the function;
+
+
+
+// WEB WORKERS.
+    // JS executes the code in single thread, and if the specific block of code is vary complex or large, it may make some load on the thread and may slow down or crash other things working on that thread. to solve this problem, we can use web workers.
+    // in web workers we can create another thread and give the heavy code to that thread to execute , a..... YOU SHOULD LEARN ABOUT IT.
+    
+</script>

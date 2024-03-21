@@ -1,0 +1,53 @@
+<script>
+// Constructor Function.
+// the function that is called by the 'new' keyword and return a object is called Constructor Function.
+// we can manipulate the object by using "this" as in constructor function -- this = {} created by new.
+// ()=>{} should't be a constructor function as it takes the value of "this" from its parent.
+function ab(){
+    console.log(this) // {}
+    // this = 12; error | we can't directly assign a value to "this".
+}
+
+let person = new ab();
+
+// to add a property or method to the blank object that is in "this", we can use "this".
+
+function abc(naam, umr){
+    this.name = naam;
+    this.age = umr;
+    this.printName = function(){
+        console.log(this.name);
+    }
+}
+
+let person1 = new abc('Ali', 23);
+let person2 = new abc('Ahmed', 12);
+
+
+console.log(person1); // {name: 'Ali', age: 23, printName: ƒ}
+console.log(person2); // {name: 'Ahmed', age: 12, printName: ƒ}
+
+// PROBLEM : if we notice, both of the above has a function called printName that is same in both. if I have 100 objects, for each of them I have to store a new function that consume a lot of computational power and memory.
+    // SOLUTION : to solve this problem we should use "prototypal inheritance". and for that first we should know about prototype.
+
+
+
+// PROTOTYPAL INHERITANCE:
+    // to resolve the problem we just remove the function from the constructor function and add it to the prototype of the constructor.
+function abc(naam, umr){
+    this.name = naam;
+    this.age = umr;
+}
+
+abc.prototype.printName = function(){
+    console.log(this.name);
+}
+
+
+let person3 = new abc('Ali', 23);
+let person4 = new abc('Ahmed', 12);
+person3.printName();
+person4.printName();
+
+
+</script>

@@ -1,0 +1,52 @@
+<script>
+// call apply and bind are used to change the value of 'this' in the function.
+// they only works for ES5 functions.
+
+// call : it call the function and change the value of 'this' for runtime.
+// it takes the value of 'this' this in first parameter and after that it takes the parameters of function.
+
+obj = {
+    name: 'jon',
+    age: 23
+}
+function abc(){
+    console.log('----call-----')
+    console.log(this) // {name: 'jon', age: 23}
+}
+
+abc.call(obj);
+
+// ********************
+// Q: What kind of object call passes in this if we use primitive data types?
+// A: some kind of object but which kind of ... PTA NHI*************************************
+// ********************
+function a(x, y, z){
+    console.log('----call(this=>primitive)-----')
+    console.log(this) // Number {23}
+    console.log(typeof this) // Object
+    console.log(x,'|',y,'|',z)
+}
+a.call(23, 'value of x', 'value of y', 'value of z');
+
+// apply : it is just like call but it takes the parameters in array form.
+
+function b(x, y, z){
+    console.log('----apply-----');
+    console.log(this) // {name: 'jon', age: 23}
+    console.log(x,'|',y,'|',z)
+}
+b.apply(obj, ['value of x', 'value of y', 'value of z']);
+
+
+// bind : it do't change the value of "this" for runtime only, it binds a value of with "this".
+// it also not call the function.
+function c(){
+    console.log('----bind-----');
+    console.log(this) // {name: 'jon', age: 23}
+}
+
+
+c.bind(obj);
+
+
+</script>

@@ -1,0 +1,57 @@
+<script>
+
+    // Callbacks vs promises vs async/await.
+    // question: get some data from api and show it on the console window.
+        // callback:
+function getData(url, callback){
+    fetch(url)
+    .then( raw=> raw.json() )
+    .then( result=> {
+        callback(result)
+    } )
+}
+
+
+
+getData('https://randomuser.me/api/', (result)=>{
+    console.log('from call back')
+    console.log(result);
+})
+
+        // Promises:
+function dataFetcher(url) {
+    var parchi = new Promise((resolve, reject)=>{
+        fetch(url)
+        .then( raw=> raw.json() )
+        .then( result=> {
+            resolve(result)
+        })    
+    })
+    return parchi;
+}
+
+dataFetcher("https://randomuser.me/api/")
+.then((res)=>{
+    console.log('from promises');
+    console.log(res);
+})
+.catch(()=>{
+    console.log('lag gay pkory');
+})
+
+
+        // async/await
+async function getData(url){
+    var res = await fetch(url);
+    res = await res.json();
+    return res;
+}
+
+async function printResult(){
+    var res = await getData("https://randomuser.me/api/"); // as it is an async function. it's result comes later so we have to wait for that. for this reason we need to wrap it into an async function to wait for the result.
+    console.log(res)
+}
+
+printResult();
+
+</script>

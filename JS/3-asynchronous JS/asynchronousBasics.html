@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+<script src="https://unpkg.com/axios@1.6.7/dist/axios.min.js"></script>
+<script>
+// ASYNCHRONOUS JS.
+// PROCESS: -MISSING.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// To write asynchronous code in javascript we should use the following:
+    // 1) setTimeout
+    // 2) setInterval
+    // 3) Fetch API
+    // 4) Axios (or other HTTP libraries)
+    // 5) promises
+
+
+// 1) setTimeout:
+    // it is a higher order function that takes two arguments. first one is function and second is the time in milliseconds after that the function will run.
+
+setTimeout(() => {
+    console.log("**********setTimeout triggered**********")
+}, 3000); // this function will run after 3seconds.
+
+
+// 2) setInterval:
+    // it is also a higher order function whose structure is just like setTimeout but it will be continuously executed after every given interval of time.
+    // to stop the setInterval at a certain point we can store it in a variable and then we can use clearInterval(variable name) at that point.
+var x = 0;
+var interval = setInterval(()=>{
+    x++;
+    console.log(x + '----------setInterval triggered----------')
+    if(x===2) clearInterval(interval);
+}, 1000)
+
+
+// 3) Fetch API:
+    // it is a function to request for the data from apis.it takes the url(API) as a parameter
+    // we can use .then(),a higher order function that takes single parameter, after fetch to get the data coming from the api. the data will come into the parameter of the function that is give as a parameter to .then().
+    // but there is a problem! i.e. the data coming from the api is now in raw format, to read this data first we have to convert it into json(readable) format and use it or/and return it.
+    // if we return the json we can get it in the parameter of next then.
+
+fetch('https://randomuser.me/api/')
+.then( x=> x.json() )
+.then(chacha =>{
+    console.log(chacha.results[0].name)
+});
+
+
+// 4) Axios (or other HTTP libraries)
+    // it is just like fetch API but a little more developer friendly because it doesn't give use the raw data, it directly gives us the readable data.
+    // as it is a library so first we have to link cdn to use it.
+axios.get('https://randomuser.me/api/') // there are two functions axios.get() and axios.post()
+.then(chacha=> console.log(chacha));
+
+
+
+
+// promise.
+    // it is a higher order function.The function given to the promise as an argument always has two parameters, resolve and reject(these are functions actually), we can change their names but these names are relevant to their purpose.
+    // two are states in the promise:-
+    // 1) resolve: if the problem will be resolved we can call resolve function. 
+    // 2) reject: if the problem will not be resolved we can call resolve function. 
+
+var prom = new Promise((chacha, chachi)=>{ // resolved -> chacah | rejected -> chachi.
+    var num = 23;
+    setTimeout(() => {
+        var sum = 23+77;
+        if(sum === 100) chacha(["chacha", "resolved"]); // we can also pass only a single argument.
+        else chachi(['chachi', 'rejected', 'khatam']);
+    }, 5000);
+})
+
+// ********************
+// Q: What happened if the resolved or rejected function will be called?
+    // A: if the function in .then() will run if resolved function is called. and the function in .catch() will run if rejected function is called.
+// ********************
+    // to create the .then() and .catch() functions we need to store the Promise in a variable and then we do like :
+    // if we passed any argument while calling resolve or reject, we have to add the arguments for that.
+
+prom.then((res)=>{
+    console.log('resolved');
+    console.log('A : '+ res[0])
+    console.log('B : '+ res[1])
+}).catch((res)=>{
+    console.log('rejected');
+    console.log('A : '+ res[0])
+    console.log('B : '+ res[1])
+    console.log('C : '+ res[2])
+})
+
+
+</script>
+</body>
+</html>

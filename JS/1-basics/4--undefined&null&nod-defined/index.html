@@ -1,0 +1,61 @@
+<script>
+// UNDEFINED
+    // it is the default value for any variable , if you just declare the variable and not initialize its value, its value will be undefined.also the programmer can declare the value as undefined.
+let a;
+console.log(a);  // undefined
+let b = undefined;
+console.log(b); // undefined
+
+
+// NULL
+    // it is a value assigned to a variable by programmer.
+let c = null;
+console.log(c); // null
+
+
+
+// DIFFERENCE BETWEEN NULL AND UNDEFINED.
+
+    // there is just a difference of datatype.
+console.log(typeof null); // object
+console.log(typeof undefined); // undefined
+
+console.log(null === undefined); // false
+console.log(null == undefined); // true
+
+    // null is treated as a number and undefined is not treated as a number.
+console.log(1 + null) // 1
+console.log(1 + undefined) // NaN
+
+        //but both works same as boolean.
+console.log(!null); // true
+console.log(!undefined) // true
+console.log(!!null); // false
+console.log(!!undefined) // false
+
+
+// NOT DEFINED:
+    // not defined is an error which means the variable is not declared yet.
+console.log(username); // Uncaught ReferenceError: username is not defined
+
+
+// Tip:
+    // if we try to get the index of array that is not in it. it will return undefined, not not-defined as array is defined but its value of that index is not declared.
+var arr = [1, 2, 3, 4, 5];
+console.log(arr[9])  // undefined
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>

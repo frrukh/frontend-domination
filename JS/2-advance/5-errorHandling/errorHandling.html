@@ -1,0 +1,58 @@
+<script>
+// ERROR HANDLING:
+// we generally use four keywords in error handling:
+// try , throw , Error, catch
+// syntax:
+/*
+try{
+        if(condition){
+            throw Error("this is error.");
+        }
+        .......
+        ......
+        .......
+    }
+    catch(err){
+        console.log(err);
+    }
+}
+*/
+
+
+function divide(a, b){
+    try{
+        if(a == 0 && b == 0){
+            throw Error("both dividend and divisor are zero!");
+        }
+        if(b == 0){
+            throw Error("dividend can be zero but divisor can't be zero!");
+        }
+        console.log(a/b);
+    }
+    catch(err){
+        console.error(err);
+    }
+}
+
+// if the error thrown the further code in try block will not be executed and it jumped to catch. and the error will be shifted in the parameter of catch.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
