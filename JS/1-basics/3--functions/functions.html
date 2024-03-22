@@ -48,11 +48,16 @@ var a = ()=> 'hello';
 var a = ()=> 21; 
 var a = ()=> function(){console.log('hi')}; // returning a function. 
 
-
 console.log(a())
 
+// tip:
+    // if we want to return a object in implicit return function the interpreter treats the {} of function as the body of function. in this case we can wrap the object in ().
 
+var returnObj = () => {name : "Hammad"}
+console.log(returnObj()); // undefined
 
+var return_Obj = () => ({name : "Hammad"})
+console.log(return_Obj()); // {name : "Hammad"}
 
 // tip:
     // any function that returns nothing, returns undefined.
