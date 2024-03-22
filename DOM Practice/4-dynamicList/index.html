@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>item</li>
+        <li>item</li>
+        <li>item</li>
+    </ul>
+    <div>
+        <input type="text" placeholder="add new item...">
+        <button id="add">add</button>
+        <button id="remove">remove</button>
+    </div>
+    <script>
+var ul = document.querySelector('ul');
+var input = document.querySelector('input[type="text"]');
+var li;
+
+var div = document.querySelector('div')
+.addEventListener('click', function(details){
+    if(details.target.id == 'add'){
+        li = document.createElement('li');
+        li.textContent = input.value;
+        ul.append(li);
+        input.value = '';
+    }
+    else if(details.target.id == 'remove'){
+        ul.removeChild(li);
+        console.log('remove')
+
+    }
+})
+
+
+
+
+    </script>
+</body>
+</html>

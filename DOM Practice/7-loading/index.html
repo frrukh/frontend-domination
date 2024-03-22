@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #loader{
+            height: 20px;
+            width: 400px;
+            background-color: #555;
+            border-radius: 20px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            /* overflow: hidden; */
+        }
+        #progress{
+            height: 100%;
+            width: 0%;
+            background-color: rgb(63, 239, 192);
+            z-index: 2;
+            border-radius: inherit;
+            transition: width 200ms linear;
+        }
+    </style>
+</head>
+<body>
+    <div id="loader">
+        <div id="progress"></div>
+    </div>
+
+    <script>
+
+
+var prog = document.querySelector('#progress');
+var count = 0;
+
+var addProgress = setInterval(() => {
+    if(count == 100){
+        clearInterval(addProgress);
+    }
+    count++;
+    prog.style.width = count+'%';
+}, 100);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <!-- to use locomotive js, we have to wrap all the code in a container and the wrapping container must not have any height! -->
+    <div id="main"> 
+        <div id="page1" class="page"></div>
+        <div id="page2" class="page">
+            <div id="img_sec">
+                <img data-scroll data-scroll-speed="5" src="https://images.unsplash.com/photo-1707343848552-893e05dba6ac?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHw1MXx8fGVufDB8fHx8fA%3D%3D" alt="">
+            </div>
+        </div>
+        <div id="page3" class="page"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
