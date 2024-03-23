@@ -1,0 +1,139 @@
+<script>
+// There are some important things that are essential to start with REACT.
+    // 1) Spread Operator
+    // 2) Destructuring
+    // 3) import/export
+    // 4) map & filter
+    
+// 1) Spread Operator
+    // In react there is something called state and we can't change the value of state directly even if it contains mutable data and mutable data types can be changed directly in js.
+    // to update the state we need to make a copy of the state's value and if the value of state is of reference data type we need to use spread operator to make its copy.
+    // spread operator is used to copy the reference data types.
+    // we use ... before the name of coping value and cover it in the brackets of coping value.
+
+var state = [1, 2, 3, 4];
+var copy = [...state];
+copy.pop();
+state = copy;
+
+var state1 =  {name: 'noman', age: 21};
+var copy1 = {...state1};
+copy1.name = "rehan";
+state1 = copy1;
+
+// 2) Destructuring
+    // It is a way to get an element of array or object in a variable instead of getting them through index or key.
+
+        // with object:
+            // to get the element first we have to write the key in curly braces and assign it to the parent of that element.
+var obj = {name : "root", age : 23}
+var {name} = obj; // name = root
+
+var obj1 = {name: "Farhan", social:{
+    facebook: {
+        user: {
+            is_admin : true
+        }
+    }
+}}
+
+var {is_admin} = obj1.social.facebook.user; // is_admin = true
+
+    // with array:
+var arr = [1, 2, "string", function(){}];
+var [first, sec, third, fourth] = arr; // first = 1 ; sec = 2; third = "string" ; fourth = function(){};
+
+var arr1 = [1, function(){}, 3, "string", 4];
+var [fir,,,str] = arr1; // fir = 1; str = "string";
+
+var arr2 = [1, 2, 3, 4, 5]
+var [one, ,...two_plus ] = arr2; // one = 1, two_plus = [3, 4, 5];
+
+    // with array and object combination:
+        // in the destructuring of array inside object or object inside array or their complex structure we use simple destructuring according to the datatype of the element that is on the right hand side.
+    // for example in : var {name_, age_} = arr_obj[3],  there is object on right hand side.
+
+
+var arr_obj = [1, 2, 3, { name_ : "hammad", age_ : 23 }]
+var {name_, age_} = arr_obj[3]; // name_ = "hammad"; age_ = 23;
+
+
+
+
+
+
+// 3) import/export
+    // In react we creates different components that are in different files and at the end we combine all of those in a single main file, to get them in main file we have to export them from their files and import them in the main file.
+    // components are functions.
+
+    // export:
+        // there are two ways to export.
+        // 1) single export.
+            // if we want to export single function we can use this syntax.
+
+function Abcd(){}
+
+// export default Abcd;
+
+        // 2) multiple export.
+            // to export multiple functions from single file.
+
+// export function xyz(){}
+// export function jkl(){}
+
+    // import:
+        // single:
+// import Abcd from "./file root"
+        // multiple:
+// import {xyz, jkl} from "./file root"
+
+
+// 4) map / filter:
+    // map and filter both are just like forEach. they run on array and give each value in each iteration. and the plus point is "both of these return an array".
+    // the major difference between map and filter is :
+        // in map we can update the value of each element but in filter we can't do this.
+        // in map (length or new array === length of give array) 
+        // in filter (length or new array === length of give array)OR(length or new array !== length of give array)
+    
+    // map:
+    
+    var array1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    var new_arr = array1.map(x=>x+10); // new_arr = [11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+    
+    var array2 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    var new_arr2 = array2.map(x=>x>3 ? x+10 : null); // new_arr2 = [null, null, null, 14, 15, 16, 17, 18, 19, 20]
+    
+    // in map the length of array will not change, if we will't return any thing, undefined will be returned.
+var array3 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+var new_arr3 = array3.map(x=>{
+    if(x>4){
+        return x;
+    }
+}) // new_arr3 = [undefined, undefined, undefined, undefined, 5, 6, 7, 8, 9, 10];
+
+
+    // filter:
+        // in filter the final return will be (true or truthy) or (false or falsy).
+        // if returning value is truthy the current iterating element will be stored into new array else not.
+
+var array_one = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+var  new_array_one = array_one.filter(x=>true) // new_array_one = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+var array_two = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+var new_array_two = array_two.filter(x=>x>5); // new_array_two = [6, 7, 8, 9, 10];
+
+var array_three = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+var new_array_three = array_three.filter(x=>{}) // new_array_three = []  - because nothing was returned inside callback function, there is a twist that by default every function returns undefined, but filter do't considers undefined and do't append it to the new array, even if we return undefined hard-coded.
+// for example:
+var array_four = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+var new_array_four = array_four.filter(x=>undefined) // new_array_four = []
+
+
+    // if we return true the current iterating value will be returned but if we update the value of parameter in which current iterating value is stored, the value of the parameter will be changed for just function, filter returns the correct value for new array.
+var array_five = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+var new_array_five = array_five.filter(x=>{
+    x = 20;
+    return x==20;
+}) // new_array_five = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]; 
+
+</script>

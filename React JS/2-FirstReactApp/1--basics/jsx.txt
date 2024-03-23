@@ -1,0 +1,15 @@
+jsx is very similar to HTML but with SUPERPOWERS.
+
+<h1> this is HTML </h1>
+<h1> this is jsx </h1> // it looks like html but in actual it will convert to js like React.CreateElement
+
+
+in html:
+    <h1>hi {2 = 2}<>  => hi {3 = 3}
+
+but in jsx:
+    <h1>hi {2 = 2}</h1> => hi 4
+
+
+TO CREATE A REACT APP FIRST WE HAVE TO RUN THIS COMMAND : npm create vite@latest
+AND THEN FOLLOW THE GIVEN COMMANDS...
