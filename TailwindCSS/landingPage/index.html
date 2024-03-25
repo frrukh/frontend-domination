@@ -7,6 +7,29 @@
     <link
     href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet"/>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .contact_btn{
+            transition: scale 1s ease-out;
+        }
+        .contact_btn::before{
+            content: "";
+            height: 200%;
+            width: 100%;
+            background-color: rgb(255, 255, 255);
+            position: absolute;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            mix-blend-mode: difference;
+            scale: 0;
+            border-radius: 50%;
+            transition: all 300ms ease-out;
+        }
+
+        .contact_btn:hover::before{
+            scale: 1.5;
+        }
+    </style>
 </head>
 <body>
     <div class="h-screen bg-red-400s">
@@ -28,7 +51,7 @@
                 <h3 class="font-semibold text-xl">Hi, I'm Farrukh👋</h3>
                 <h1 class="font-bold text-center w-3/4 tracking-tighter leading-none text-3xl mt-6">building digital products, brands and experiences.</h1>
                 <p class=" tracking-tighter w-3/4 text-center mt-4">Hi, I am Farrukh s Building digital products, brands, experiences and Visual Development.</p>
-                <button class="px-5 py-2 tracking-tighter text-sm mt-8 bg-black text-white rounded-full">Connect with me</button>
+                <button class="contact_btn overflow-hidden relative px-5 py-2 tracking-tighter text-sm mt-8 bg-black text-white rounded border border-black">Connect with me</button>
             </div>
         </div>
     </div>
