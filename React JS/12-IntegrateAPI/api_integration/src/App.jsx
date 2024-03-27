@@ -3,8 +3,8 @@ import axios from 'axios'
 
 function App() {
 
-const url = "https://fakestoreapi.com/products";
   const getData = ()=>{
+    const url = "https://fakestoreapi.com/products";
     axios.get(url)
     .then(products=>{
       console.log(products.data)
@@ -12,8 +12,9 @@ const url = "https://fakestoreapi.com/products";
       console.log(err)
     })
   }
-
+  
   const sendData = ()=>{
+    const url = "https://fakestoreapi.com/products";
     axios.post(url, {
         title: 'test product',
         price: 13.5,
