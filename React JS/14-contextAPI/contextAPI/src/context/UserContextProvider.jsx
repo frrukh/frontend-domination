@@ -11,7 +11,7 @@ const UserContextProvider = ({children})=>{
 
     // in this function we have to return a tag which name is same as we created the context and export it from context.js file and import it over here.
     // in this tag we have to write the children that we get from the parameter.
-    // we can pass the data, in value attribute as an object, that we want to access anywhere in your application.
+    // we can pass the data, in value attribute as object or list or any datatype, that we want to access anywhere in your application.
 
     return (
         <UserContext.Provider value={{user, setUser}}>
